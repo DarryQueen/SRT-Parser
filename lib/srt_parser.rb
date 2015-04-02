@@ -10,11 +10,9 @@ module SRTParser
 
       srt_file.lines.each do |line|
         if times.last and line.start_time <= times.last[1]
-          if line.end_time > times.last[1]
-            times.last[1] = line.end_time
-          end
+          times.last[1] = [times.last[1], line.end_time].max
         else
-          times.push([ line.start_time, line.end_time ])
+          times.push([line.start_time, line.end_time])
         end
       end
 
