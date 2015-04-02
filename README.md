@@ -19,6 +19,12 @@ Then, to get the coverage from that file:
 coverage = subtitle.coverage
 ```
 
+You can also merge multiple subtitles for the same video to get an aggregate coverage:
+```ruby
+merged_subtitle = SRTParser::Subtitle.merge(SUBTITLE_1, SUBTITLE_2)
+merged_subtitle.coverage
+```
+
 ## Contributing
 1. Fork it!
 2. Create your feature branch (`git checkout -b my-new-feature`).
